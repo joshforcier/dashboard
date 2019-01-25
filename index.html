@@ -317,6 +317,7 @@
                     "accWeight": $("#irpo-default").val(),
                     "ppdWeight": $("#acc-default").val(),
                 }
+                console.log(inputData);
 
             window.localStorage.setItem('dataKey', JSON.stringify(inputData));
         });
@@ -324,6 +325,7 @@
         // get saved values
         var getData = window.localStorage.getItem('dataKey');
         getData = JSON.parse(getData);
+        console.log(getData);
 
         if (getData) {
             $('.dtvGoal').val(getData.dtvGoal);
@@ -344,7 +346,6 @@
             $('#irpo-default').val(getData.accWeight);
             $('#acc-default').val(getData.ppdWeight);
         }
-        console.log($("#dtv-default").val());
         // set default weights if not set by user
         if (!($("#dtv-default").val()) || $("#dtv-default").val() == 0) {
             $("#dtv-default").val('30');
