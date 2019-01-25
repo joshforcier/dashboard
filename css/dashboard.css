@@ -2,9 +2,9 @@
     margin: 5%;
 }
 
-.table-head {    
-    margin: auto;  
-    font-size: 1.5rem;  
+.table-head {
+    margin: auto;
+    font-size: 1.5rem;
 }
 
 .input-group-text {
@@ -14,4 +14,12 @@
 #mtd, #new {
     font-size: 2rem;
     font-weight: bold;
+}
+
+.form-control {
+    font-size: 1.5rem;
+}
+
+p {
+    padding: 0px !important;
 }
