@@ -10,6 +10,7 @@
 
 <body>
     <div class="margin-5">
+        <div class="alert" role="alert"></div>
         <table class="table table-bordered">
             <tr class='text-center'>
                 <th>
@@ -288,48 +289,105 @@
             }
         }
 
-        $(function() {
-            $("#vga-default").val('40');
+        function daysInThisMonth() 
+        {
+            let now = new Date();
+            return new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+        }
+
+        // save user input to local storage
+        $('input select').change(function() {
+            var inputData = 
+                {
+                    "dtvGoal": $('.dtvGoal').val(),
+                    "vgaGoal": $('.vgaGoal').val(),
+                    "irpoGoal": $('.irpoGoal').val(),
+                    "accGoal": $('.accGoal').val(),
+                    "ppdGoal": $('.ppdGoal').val(),
+
+                    "dtvMTD": $('.dtvMTD').val(),
+                    "vgaMTD": $('.vgaMTD').val(),
+                    "irpoMTD": $('.irpoMTD').val(),
+                    "accMTD": $('.accMTD').val(),
+                    "ppdMTD": $('.ppdMTD').val(),
+
+                    "dtvWeight": $("#dtv-default").val(),
+                    "vgaWeight": $("#vga-default").val(),
+                    "irpoWeight": $("#ppd-default").val(),
+                    "accWeight": $("#irpo-default").val(),
+                    "ppdWeight": $("#acc-default").val(),
+                }
+
+            localStorage.setItem('dataKey', JSON.stringify(inputData));
+        });
+
+        // get saved values
+        var getData = localStorage.getItem('dataKey');
+        getData = JSON.parse(getData);
+        $('.dtvGoal').val(getData.dtvGoal);
+        $('.vgaGoal').val(getData.vgaGoal);
+        $('.irpoGoal').val(getData.irpoGoal);
+        $('.accGoal').val(getData.accGoal);
+        $('.ppdGoal').val(getData.ppdGoal);
+
+        $('.dtvMTD').val(getData.dtvMTD);
+        $('.vgaMTD').val(getData.vgaMTD);;
+        $('.irpoMTD').val(getData.irpoMTD);
+        $('.accMTD').val(getData.accMTD);
+        $('.ppdMTD').val(getData.ppdMTD);
+
+        $('#dtv-default').val(getData.dtvWeight);
+        $('#vga-default').val(getData.vgaWeight);;
+        $('#ppd-default').val(getData.irpoWeight);
+        $('#irpo-default').val(getData.accWeight);
+        $('#acc-default').val(getData.ppdWeight);
+
+        // set default weights if not set by user
+        if (!($("#dtv-default").val())) {
             $("#dtv-default").val('30');
-            $("#irpo-default").val('15');
+        }
+        if (!($("#vga-default").val())) {
+            $("#vga-default").val('40');
+        }
+        if (!($("#ppd-default").val())) {
             $("#ppd-default").val('10');
+        }
+        if (!($("#irpo-default").val())) {
+            $("#irpo-default").val('15');
+        }
+        if (!($("#acc-default").val())) {
             $("#acc-default").val('5');
-        });
+        }
 
-        $('input').change(function() {
-            localStorage["dtvGoal"] = $('.dtvGoal').val();
-            localStorage["vgaGoal"] = $('.vgaGoal').val();
-            localStorage["irpoGoal"] = $('.irpoGoal').val();
-            localStorage["accGoal"] = $('.accGoal').val();
-            localStorage["ppdGoal"] = $('.ppdGoal').val();
-        });
+        $('input, select').change(function() {
+            // Calculate mtd percent
+            // get mtd goals
+            let today = new Date().getDate();
+            let daysInMonth = daysInThisMonth();
+            // numbers are from yesterday
+            let mtd = (today - 1) / daysInMonth;
+            let mtdDtvGoal = ($('.dtvGoal').val()) * mtd;
+            let mtdVgaGoal = ($('.vgaGoal').val()) * mtd;
+            let mtdPpdGoal = ($('.ppdGoal').val()) * mtd;
+            let mtdAccGoal = ($('.accGoal').val()) * mtd;            
 
-        $('.dtvGoal').val(localStorage["dtvGoal"]);
-        $('.vgaGoal').val(localStorage["vgaGoal"]);;
-        $('.irpoGoal').val(localStorage["irpoGoal"]);
-        $('.accGoal').val(localStorage["accGoal"]);
-        $('.ppdGoal').val(localStorage["ppdGoal"]);
-
-        
-        $('input').change(function() {
-            // Calculate current percent
             // DTV
             if ($('.dtvMTD').val()) {
-                percentAttainDtv = ($('.dtvMTD').val() / $('.dtvGoal').val()) * 100;
+                percentAttainDtv = ($('.dtvMTD').val() / mtdDtvGoal) * 100;
                 percentAttainDtv = parseFloat(percentAttainDtv).toFixed(2);
                 $('.percentAttainDtv').text(percentAttainDtv);
             }
 
             // VGA
             if ($('.vgaMTD').val()) {
-                percentAttainVga = ($('.vgaMTD').val() / $('.vgaGoal').val()) * 100;
+                percentAttainVga = ($('.vgaMTD').val() / mtdVgaGoal) * 100;
                 percentAttainVga = parseFloat(percentAttainVga).toFixed(2);
                 $('.percentAttainVga').text(percentAttainVga);
             }
 
             // PPD
             if ($('.ppdMTD').val()) {
-                percentAttainPpd = ($('.ppdMTD').val() / $('.ppdGoal').val()) * 100;
+                percentAttainPpd = ($('.ppdMTD').val() / mtdPpdGoal) * 100;
                 percentAttainPpd = parseFloat(percentAttainPpd).toFixed(2);
                 $('.percentAttainPpd').text(percentAttainPpd);
             }
@@ -343,17 +401,17 @@
 
             // ACC
             if ($('.accMTD').val()) {
-                percentAttainAcc = ($('.accMTD').val() / $('.accGoal').val()) * 100;
+                percentAttainAcc = ($('.accMTD').val() / mtdAccGoal) * 100;
                 percentAttainAcc = parseFloat(percentAttainAcc).toFixed(2);
                 console.log(percentAttainAcc);
                 $('.percentAttainAcc').text(percentAttainAcc);
             }
 
-            // Calculate new percent            
+            // Calculate new percent
             if ($('.dtvAdd').val() || $('.vgaAdd').val() || $('.irpoAdd').val() || $('.accAdd').val()) {
                 // DTV
                 if ($('.dtvAdd').val()) {
-                    newAttainDtv = ((parseFloat($('.dtvMTD').val()) + parseFloat($('.dtvAdd').val())) / $('.dtvGoal').val()) * 100;
+                    newAttainDtv = ((parseFloat($('.dtvMTD').val()) + parseFloat($('.dtvAdd').val())) / mtdDtvGoal) * 100;
                     newAttainDtv = parseFloat(newAttainDtv).toFixed(2);
                     $('.newAttainDtv').text(newAttainDtv);
                 } else {
@@ -362,7 +420,7 @@
             
                 // VGA
                 if ($('.vgaAdd').val()) {
-                    newAttainVga = ((parseFloat($('.vgaMTD').val()) + parseFloat($('.vgaAdd').val())) / $('.vgaGoal').val()) * 100;
+                    newAttainVga = ((parseFloat($('.vgaMTD').val()) + parseFloat($('.vgaAdd').val())) / mtdVgaGoal) * 100;
                     newAttainVga = parseFloat(newAttainVga).toFixed(2);
                     $('.newAttainVga').text(newAttainVga);
                 } else {
@@ -371,7 +429,7 @@
 
                 // PPD
                 if ($('.ppdAdd').val()) {
-                    newAttainPpd = ((parseFloat($('.ppdMTD').val()) + parseFloat($('.ppdAdd').val())) / $('.ppdGoal').val()) * 100;
+                    newAttainPpd = ((parseFloat($('.ppdMTD').val()) + parseFloat($('.ppdAdd').val())) / mtdPpdGoal) * 100;
                     newAttainPpd = parseFloat(newAttainPpd).toFixed(2);
                     $('.newAttainPpd').text(newAttainPpd);
                 } else {
@@ -388,8 +446,8 @@
                 }            
             
                 // ACC
-                if ($('.accAdd').val()) {          
-                    newAttainAcc = (parseFloat($('.accAdd').val())/ $('.accGoal').val()) * 100;
+                if ($('.accAdd').val()) {
+                    newAttainAcc = (parseFloat($('.accAdd').val())/ mtdAccGoal) * 100;
                     newAttainAcc = parseFloat(newAttainAcc).toFixed(2);
                     $('.newAttainAcc').text(newAttainAcc);
                 } else {
@@ -408,10 +466,13 @@
             let attainPpd = parseFloat($(".newAttainPpd").text());
             let AttainIrpo = parseFloat($(".newAttainIrpo").text());
             let AttainAcc = parseFloat($(".newAttainAcc").text());
-
+            
             if ((vgaWeight + dtvWeight + irpoWeight + accWeight + ppdWeight) !== 100) {
-                alert('Weights must add up to 100!');
-                return;
+                $('.alert').addClass('alert-danger alert-dismissible');
+                $('.alert').text('Weights must add up to 100!');                
+            } else {
+                $('.alert').removeClass('alert-danger alert-dismissible');
+                $('.alert').text('');
             }
 
             let weightedPercent = ((dtvWeight / 100) * percentAttainDtv) + ((vgaWeight / 100) * percentAttainVga) + ((ppdWeight / 100) * percentAttainPpd) + ((irpoWeight / 100) * percentAttainIrpo) + ((accWeight / 100) * percentAttainAcc);
@@ -424,7 +485,7 @@
             if (weightedPercent >= 0) {
                 $('#mtd').text('MTD Attainment: ' + weightedPercent + '%');
             }
-            console.log(newWeightedPercent);
+            
             if (newWeightedPercent >= 0) {
                 $('#new').text('New Attainment: ' + newWeightedPercent + '%');
             }
