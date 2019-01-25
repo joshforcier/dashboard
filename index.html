@@ -324,24 +324,26 @@
         // get saved values
         var getData = window.localStorage.getItem('dataKey');
         getData = JSON.parse(getData);
-        $('.dtvGoal').val(getData.dtvGoal);
-        $('.vgaGoal').val(getData.vgaGoal);
-        $('.irpoGoal').val(getData.irpoGoal);
-        $('.accGoal').val(getData.accGoal);
-        $('.ppdGoal').val(getData.ppdGoal);
 
-        $('.dtvMTD').val(getData.dtvMTD);
-        $('.vgaMTD').val(getData.vgaMTD);;
-        $('.irpoMTD').val(getData.irpoMTD);
-        $('.accMTD').val(getData.accMTD);
-        $('.ppdMTD').val(getData.ppdMTD);
+        if (getData) {
+            $('.dtvGoal').val(getData.dtvGoal);
+            $('.vgaGoal').val(getData.vgaGoal);
+            $('.irpoGoal').val(getData.irpoGoal);
+            $('.accGoal').val(getData.accGoal);
+            $('.ppdGoal').val(getData.ppdGoal);
 
-        $('#dtv-default').val(getData.dtvWeight);
-        $('#vga-default').val(getData.vgaWeight);;
-        $('#ppd-default').val(getData.irpoWeight);
-        $('#irpo-default').val(getData.accWeight);
-        $('#acc-default').val(getData.ppdWeight);
+            $('.dtvMTD').val(getData.dtvMTD);
+            $('.vgaMTD').val(getData.vgaMTD);;
+            $('.irpoMTD').val(getData.irpoMTD);
+            $('.accMTD').val(getData.accMTD);
+            $('.ppdMTD').val(getData.ppdMTD);
 
+            $('#dtv-default').val(getData.dtvWeight);
+            $('#vga-default').val(getData.vgaWeight);;
+            $('#ppd-default').val(getData.irpoWeight);
+            $('#irpo-default').val(getData.accWeight);
+            $('#acc-default').val(getData.ppdWeight);
+        }
         // set default weights if not set by user
         if (!($("#dtv-default").val()) || $("#dtv-default").val() === 0) {
             $("#dtv-default").val('30');
