@@ -316,16 +316,14 @@
                     "irpoWeight": $("#ppd-default").val(),
                     "accWeight": $("#irpo-default").val(),
                     "ppdWeight": $("#acc-default").val(),
-                }
-                console.log(inputData);
+                }                
 
             window.localStorage.setItem('dataKey', JSON.stringify(inputData));
         });
 
         // get saved values
         var getData = window.localStorage.getItem('dataKey');
-        getData = JSON.parse(getData);
-        console.log(getData);
+        getData = JSON.parse(getData);        
 
         if (getData) {
             $('.dtvGoal').val(getData.dtvGoal);
@@ -453,8 +451,7 @@
                     newAttainAcc = (parseFloat($('.accAdd').val())/ mtdAccGoal) * 100;
                     newAttainAcc = parseFloat(newAttainAcc).toFixed(2);
                     $('.newAttainAcc').text(newAttainAcc);
-                } else {
-                    console.log(percentAttainAcc);
+                } else {                    
                     $('.newAttainAcc').text(percentAttainAcc);
                 }
             }
