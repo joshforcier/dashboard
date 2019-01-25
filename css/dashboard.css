@@ -1,0 +1,17 @@
+.margin-5 {
+    margin: 5%;
+}
+
+.table-head {    
+    margin: auto;  
+    font-size: 1.5rem;  
+}
+
+.input-group-text {
+    padding: 5px;
+}
+
+#mtd, #new {
+    font-size: 2rem;
+    font-weight: bold;
+}
