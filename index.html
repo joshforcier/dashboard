@@ -296,7 +296,7 @@
         }
 
         // save user input to local storage
-        $('input select').change(function() {
+        $('input, select').change(function() {
             var inputData = 
                 {
                     "dtvGoal": $('.dtvGoal').val(),
@@ -406,8 +406,7 @@
             // ACC
             if ($('.accMTD').val()) {
                 percentAttainAcc = ($('.accMTD').val() / mtdAccGoal) * 100;
-                percentAttainAcc = parseFloat(percentAttainAcc).toFixed(2);
-                console.log(percentAttainAcc);
+                percentAttainAcc = parseFloat(percentAttainAcc).toFixed(2);                
                 $('.percentAttainAcc').text(percentAttainAcc);
             }
 
