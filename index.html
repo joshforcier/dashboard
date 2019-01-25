@@ -1,0 +1,435 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DASHBOARD</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <div class="margin-5">
+        <table class="table table-bordered">
+            <tr class='text-center'>
+                <th>
+                    <div class="input-group">  
+                        <div class="table-head">
+                            <span><b>DTV</b></span>
+                        </div>
+                        <div class="input-group-append">
+                            <select class="custom-select weight" id="dtv-default"></select>
+                            <span class="input-group-text">% wt</span>
+                        </div>
+                    </div>
+                </th>
+
+                <th>
+                    <div class="input-group">  
+                        <div class="table-head">
+                            <span><b>VGA</b></span>
+                        </div>
+                        <div class="input-group-append">
+                            <select class="custom-select weight" id="vga-default"></select>
+                            <label class="input-group-text" for="vga-default">% wt</label>
+                        </div>
+                    </div>
+                </th>
+
+                <th>
+                    <div class="input-group">  
+                        <div class="table-head">
+                            <span><b>PREPD</b></span>
+                        </div>
+                        <div class="input-group-append">
+                            <select class="custom-select weight" id="ppd-default"></select>
+                            <label class="input-group-text" for="ppd-default">% wt</label>
+                        </div>
+                    </div>
+                </th>
+
+                <th>
+                    <div class="input-group">  
+                        <div class="table-head">
+                            <span><b>IRPO</b></span>
+                        </div>
+                        <div class="input-group-append">
+                            <select class="custom-select weight" id="irpo-default"></select>
+                            <label class="input-group-text" for="irpo-default">% wt</label>
+                        </div>
+                    </div>
+                </th>
+
+                <th>
+                    <div class="input-group">  
+                        <div class="table-head">
+                            <span><b>ACCREV</b></span>
+                        </div>
+                        <div class="input-group-append">
+                            <select class="custom-select weight" id="acc-default"></select>
+                            <label class="input-group-text" for="acc-default">% wt</label>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD</span>
+                        </div>
+                        <input type="number" class="form-control dtvMTD">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text " id="basic-addon1">Goal</span>
+                        </div>
+                        <input type="number" class="form-control goal dtvGoal">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text " id="basic-addon1">Add</span>
+                        </div>
+                        <input type="number" class="form-control add dtvAdd">
+                    </div>
+                </td>
+
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD</span>
+                        </div>
+                        <input type="number" class="form-control vgaMTD">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Goal</span>
+                        </div>
+                        <input type="number" class="form-control goal vgaGoal">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text " id="basic-addon1">Add</span>
+                        </div>
+                        <input type="number" class="form-control add vgaAdd">
+                    </div>
+                </td>
+
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD</span>
+                        </div>
+                        <input type="number" class="form-control ppdMTD">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Goal</span>
+                        </div>
+                        <input type="number" class="form-control goal ppdGoal">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text " id="basic-addon1">Add</span>
+                        </div>
+                        <input type="number" class="form-control add ppdAdd">
+                    </div>
+                </td>
+
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD</span>
+                        </div>
+                        <input type="number" class="form-control irpoMTD">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Goal</span>
+                        </div>
+                        <input type="number" class="form-control goal irpoGoal">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text " id="basic-addon1">New</span>
+                        </div>
+                        <input type="number" class="form-control add irpoAdd">
+                    </div>
+                </td>
+ 
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD</span>
+                        </div>
+                        <input type="number" class="form-control accMTD">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Goal</span>
+                        </div>
+                        <input type="number" class="form-control goal accGoal">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text " id="basic-addon1">New</span>
+                        </div>
+                        <input type="number" class="form-control add accAdd">
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD % </span>
+                        </div>
+                        <p class="form-control percentAttainDtv"></p>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">New %</span>
+                        </div>
+                        <p  class="form-control newAttainDtv"></p>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD % </span>
+                        </div>
+                        <p class="form-control percentAttainVga"></p>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">New %</span>
+                        </div>
+                        <p  class="form-control newAttainVga"></p>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD % </span>
+                        </div>
+                        <p class="form-control percentAttainPpd"></p>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">New %</span>
+                        </div>
+                        <p  class="form-control newAttainPpd"></p>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD % </span>
+                        </div>
+                        <p class="form-control percentAttainIrpo"></p>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">New %</span>
+                        </div>
+                        <p  class="form-control newAttainIrpo"></p>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">MTD % </span>
+                        </div>
+                        <p class="form-control percentAttainAcc"></p>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">New %</span>
+                        </div>
+                        <p  class="form-control newAttainAcc"></p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div id='mtd'>MTD Attainment:</div>
+
+        <div id='new'>New Attainment:</div>
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">      
+    </script>
+
+    <script>
+
+        var percentAttainDtv;
+        var percentAttainVga;
+        var percentAttainIrpo;
+        var percentAttainAcc;
+        var percentAttainPpd;
+        var newAttainDtv;
+        var newAttainVga;
+        var newAttainIrpo;
+        var newAttainAcc;
+        var newAttainPpd;
+
+        for (i = 0 ; i <= 100; i++) {
+            if (i % 5 === 0) {
+                $(".weight").append($('<option></option>').val(i).html(i))
+            }
+        }
+
+        $(function() {
+            $("#vga-default").val('40');
+            $("#dtv-default").val('30');
+            $("#irpo-default").val('15');
+            $("#ppd-default").val('10');
+            $("#acc-default").val('5');
+        });
+
+        $('input').change(function() {
+            localStorage["dtvGoal"] = $('.dtvGoal').val();
+            localStorage["vgaGoal"] = $('.vgaGoal').val();
+            localStorage["irpoGoal"] = $('.irpoGoal').val();
+            localStorage["accGoal"] = $('.accGoal').val();
+            localStorage["ppdGoal"] = $('.ppdGoal').val();
+        });
+
+        $('.dtvGoal').val(localStorage["dtvGoal"]);
+        $('.vgaGoal').val(localStorage["vgaGoal"]);;
+        $('.irpoGoal').val(localStorage["irpoGoal"]);
+        $('.accGoal').val(localStorage["accGoal"]);
+        $('.ppdGoal').val(localStorage["ppdGoal"]);
+
+        
+        $('input').change(function() {
+            // Calculate current percent
+            // DTV
+            if ($('.dtvMTD').val()) {
+                percentAttainDtv = ($('.dtvMTD').val() / $('.dtvGoal').val()) * 100;
+                percentAttainDtv = parseFloat(percentAttainDtv).toFixed(2);
+                $('.percentAttainDtv').text(percentAttainDtv);
+            }
+
+            // VGA
+            if ($('.vgaMTD').val()) {
+                percentAttainVga = ($('.vgaMTD').val() / $('.vgaGoal').val()) * 100;
+                percentAttainVga = parseFloat(percentAttainVga).toFixed(2);
+                $('.percentAttainVga').text(percentAttainVga);
+            }
+
+            // PPD
+            if ($('.ppdMTD').val()) {
+                percentAttainPpd = ($('.ppdMTD').val() / $('.ppdGoal').val()) * 100;
+                percentAttainPpd = parseFloat(percentAttainPpd).toFixed(2);
+                $('.percentAttainPpd').text(percentAttainPpd);
+            }
+
+            // IRPO
+            if ($('.irpoMTD').val()) {
+                percentAttainIrpo = ($('.irpoMTD').val() / $('.irpoGoal').val()) * 100;
+                percentAttainIrpo = parseFloat(percentAttainIrpo).toFixed(2);
+                $('.percentAttainIrpo').text(percentAttainIrpo);
+            }
+
+            // ACC
+            if ($('.accMTD').val()) {
+                percentAttainAcc = ($('.accMTD').val() / $('.accGoal').val()) * 100;
+                percentAttainAcc = parseFloat(percentAttainAcc).toFixed(2);
+                console.log(percentAttainAcc);
+                $('.percentAttainAcc').text(percentAttainAcc);
+            }
+
+            // Calculate new percent            
+            if ($('.dtvAdd').val() || $('.vgaAdd').val() || $('.irpoAdd').val() || $('.accAdd').val()) {
+                // DTV
+                if ($('.dtvAdd').val()) {
+                    newAttainDtv = ((parseFloat($('.dtvMTD').val()) + parseFloat($('.dtvAdd').val())) / $('.dtvGoal').val()) * 100;
+                    newAttainDtv = parseFloat(newAttainDtv).toFixed(2);
+                    $('.newAttainDtv').text(newAttainDtv);
+                } else {
+                    $('.newAttainDtv').text(percentAttainDtv);
+                }
+            
+                // VGA
+                if ($('.vgaAdd').val()) {
+                    newAttainVga = ((parseFloat($('.vgaMTD').val()) + parseFloat($('.vgaAdd').val())) / $('.vgaGoal').val()) * 100;
+                    newAttainVga = parseFloat(newAttainVga).toFixed(2);
+                    $('.newAttainVga').text(newAttainVga);
+                } else {
+                    $('.newAttainVga').text(percentAttainVga);
+                }
+
+                // PPD
+                if ($('.ppdAdd').val()) {
+                    newAttainPpd = ((parseFloat($('.ppdMTD').val()) + parseFloat($('.ppdAdd').val())) / $('.ppdGoal').val()) * 100;
+                    newAttainPpd = parseFloat(newAttainPpd).toFixed(2);
+                    $('.newAttainPpd').text(newAttainPpd);
+                } else {
+                    $('.newAttainPpd').text(percentAttainPpd);
+                }
+            
+                // IRPO
+                if ($('.irpoAdd').val()) {
+                    newAttainIrpo = (parseFloat($('.irpoAdd').val()) / $('.irpoGoal').val()) * 100;
+                    newAttainIrpo = parseFloat(newAttainIrpo).toFixed(2);  
+                    $('.newAttainIrpo').text(newAttainIrpo);
+                } else {
+                    $('.newAttainIrpo').text(percentAttainIrpo);
+                }            
+            
+                // ACC
+                if ($('.accAdd').val()) {          
+                    newAttainAcc = (parseFloat($('.accAdd').val())/ $('.accGoal').val()) * 100;
+                    newAttainAcc = parseFloat(newAttainAcc).toFixed(2);
+                    $('.newAttainAcc').text(newAttainAcc);
+                } else {
+                    console.log(percentAttainAcc);
+                    $('.newAttainAcc').text(percentAttainAcc);
+                }
+            }
+
+            let dtvWeight = parseFloat($("#dtv-default").val());
+            let vgaWeight = parseFloat($("#vga-default").val());
+            let ppdWeight = parseFloat($("#ppd-default").val());
+            let irpoWeight = parseFloat($("#irpo-default").val());
+            let accWeight = parseFloat($("#acc-default").val());
+            let attainDtv = parseFloat($(".newAttainDtv").text());
+            let attainVga = parseFloat($(".newAttainVga").text());
+            let attainPpd = parseFloat($(".newAttainPpd").text());
+            let AttainIrpo = parseFloat($(".newAttainIrpo").text());
+            let AttainAcc = parseFloat($(".newAttainAcc").text());
+
+            if ((vgaWeight + dtvWeight + irpoWeight + accWeight + ppdWeight) !== 100) {
+                alert('Weights must add up to 100!');
+                return;
+            }
+
+            let weightedPercent = ((dtvWeight / 100) * percentAttainDtv) + ((vgaWeight / 100) * percentAttainVga) + ((ppdWeight / 100) * percentAttainPpd) + ((irpoWeight / 100) * percentAttainIrpo) + ((accWeight / 100) * percentAttainAcc);
+            weightedPercent = weightedPercent.toFixed(2);
+
+            let newWeightedPercent = ((dtvWeight / 100) * attainDtv) + ((vgaWeight / 100) * attainVga) +  ((ppdWeight / 100) * attainPpd) + ((irpoWeight / 100) * AttainIrpo) + ((accWeight / 100) * AttainAcc);
+
+            newWeightedPercent = newWeightedPercent.toFixed(2);
+
+            if (weightedPercent >= 0) {
+                $('#mtd').text('MTD Attainment: ' + weightedPercent + '%');
+            }
+            console.log(newWeightedPercent);
+            if (newWeightedPercent >= 0) {
+                $('#new').text('New Attainment: ' + newWeightedPercent + '%');
+            }
+        });
+
+    </script>
+</body>
+</html>
