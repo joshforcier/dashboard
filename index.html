@@ -344,20 +344,21 @@
             $('#irpo-default').val(getData.accWeight);
             $('#acc-default').val(getData.ppdWeight);
         }
+        console.log($("#dtv-default").val());
         // set default weights if not set by user
-        if (!($("#dtv-default").val()) || $("#dtv-default").val() === 0) {
+        if (!($("#dtv-default").val()) || $("#dtv-default").val() == 0) {
             $("#dtv-default").val('30');
         }
-        if (!($("#vga-default").val())) {
+        if (!($("#vga-default").val()) || $("#vga-default").val() == 0) {
             $("#vga-default").val('40');
         }
-        if (!($("#ppd-default").val())) {
+        if (!($("#ppd-default").val()) || $("#ppd-default").val() == 0) {
             $("#ppd-default").val('10');
         }
-        if (!($("#irpo-default").val())) {
+        if (!($("#irpo-default").val()) || $("#irpo-default").val() == 0) {
             $("#irpo-default").val('15');
         }
-        if (!($("#acc-default").val())) {
+        if (!($("#acc-default").val()) || $("#acc-default").val() == 0) {
             $("#acc-default").val('5');
         }
 
