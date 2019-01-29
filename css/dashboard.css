@@ -9,6 +9,7 @@
 
 .input-group-text {
     padding: 5px;
+    width: 60px;
 }
 
 #mtd, #new {
@@ -17,9 +18,18 @@
 }
 
 .form-control {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 p {
-    padding: 0px !important;
+    padding-left: 3px !important;
+    padding-top: 5px !important;
+}
+
+.goal, .add, .mtd, .result {
+	height: 55px;
+}
+
+.thead {
+	margin: 0 auto;
 }
