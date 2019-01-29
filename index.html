@@ -174,7 +174,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text " id="basic-addon1">New</span>
+                            <span class="input-group-text " id="basic-addon1">Add</span>
                         </div>
                         <input type="number" class="form-control add accAdd">
                     </div>
@@ -448,7 +448,7 @@
             
                 // ACC
                 if ($('.accAdd').val()) {
-                    newAttainAcc = (parseFloat($('.accAdd').val())/ mtdAccGoal) * 100;
+                    newAttainAcc = ((parseFloat($('.accMTD').val()) + parseFloat($('.accAdd').val()))/ mtdAccGoal) * 100;
                     newAttainAcc = parseFloat(newAttainAcc).toFixed(2);
                     $('.newAttainAcc').text(newAttainAcc);
                 } else {                    
