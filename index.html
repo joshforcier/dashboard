@@ -18,7 +18,7 @@
                         <div class="table-head">
                             <span><b>DTV</b></span>
                         </div>
-                        <div class="input-group-append">
+                        <div class="input-group-append thead">
                             <select class="custom-select weight" id="dtv-default"></select>
                             <span class="input-group-text">% wt</span>
                         </div>
@@ -30,7 +30,7 @@
                         <div class="table-head">
                             <span><b>VGA</b></span>
                         </div>
-                        <div class="input-group-append">
+                        <div class="input-group-append thead">
                             <select class="custom-select weight" id="vga-default"></select>
                             <label class="input-group-text" for="vga-default">% wt</label>
                         </div>
@@ -42,7 +42,7 @@
                         <div class="table-head">
                             <span><b>PREPD</b></span>
                         </div>
-                        <div class="input-group-append">
+                        <div class="input-group-append thead">
                             <select class="custom-select weight" id="ppd-default"></select>
                             <label class="input-group-text" for="ppd-default">% wt</label>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="table-head">
                             <span><b>IRPO</b></span>
                         </div>
-                        <div class="input-group-append">
+                        <div class="input-group-append thead">
                             <select class="custom-select weight" id="irpo-default"></select>
                             <label class="input-group-text" for="irpo-default">% wt</label>
                         </div>
@@ -66,7 +66,7 @@
                         <div class="table-head">
                             <span><b>ACCREV</b></span>
                         </div>
-                        <div class="input-group-append">
+                        <div class="input-group-append thead">
                             <select class="custom-select weight" id="acc-default"></select>
                             <label class="input-group-text" for="acc-default">% wt</label>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD</span>
                         </div>
-                        <input type="number" class="form-control dtvMTD">
+                        <input type="number" class="form-control mtd dtvMTD">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -101,7 +101,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD</span>
                         </div>
-                        <input type="number" class="form-control vgaMTD">
+                        <input type="number" class="form-control mtd vgaMTD">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -122,7 +122,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD</span>
                         </div>
-                        <input type="number" class="form-control ppdMTD">
+                        <input type="number" class="form-control mtd ppdMTD">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -143,7 +143,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD</span>
                         </div>
-                        <input type="number" class="form-control irpoMTD">
+                        <input type="number" class="form-control mtd irpoMTD">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -164,7 +164,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD</span>
                         </div>
-                        <input type="number" class="form-control accMTD">
+                        <input type="number" class="form-control mtd accMTD">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -187,13 +187,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD % </span>
                         </div>
-                        <p class="form-control percentAttainDtv"></p>
+                        <p class="form-control percentAttainDtv result"></p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">New %</span>
                         </div>
-                        <p  class="form-control newAttainDtv"></p>
+                        <p  class="form-control newAttainDtv result"></p>
                     </div>
                 </td>
 
@@ -202,13 +202,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD % </span>
                         </div>
-                        <p class="form-control percentAttainVga"></p>
+                        <p class="form-control percentAttainVga result"></p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">New %</span>
                         </div>
-                        <p  class="form-control newAttainVga"></p>
+                        <p  class="form-control newAttainVga result"></p>
                     </div>
                 </td>
 
@@ -217,13 +217,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD % </span>
                         </div>
-                        <p class="form-control percentAttainPpd"></p>
+                        <p class="form-control percentAttainPpd result"></p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">New %</span>
                         </div>
-                        <p  class="form-control newAttainPpd"></p>
+                        <p  class="form-control newAttainPpd result"></p>
                     </div>
                 </td>
 
@@ -232,13 +232,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD % </span>
                         </div>
-                        <p class="form-control percentAttainIrpo"></p>
+                        <p class="form-control percentAttainIrpo result"></p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">New %</span>
                         </div>
-                        <p  class="form-control newAttainIrpo"></p>
+                        <p  class="form-control newAttainIrpo result"></p>
                     </div>
                 </td>
 
@@ -247,13 +247,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD % </span>
                         </div>
-                        <p class="form-control percentAttainAcc"></p>
+                        <p class="form-control percentAttainAcc result"></p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">New %</span>
                         </div>
-                        <p  class="form-control newAttainAcc"></p>
+                        <p  class="form-control newAttainAcc result"></p>
                     </div>
                 </td>
             </tr>
