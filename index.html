@@ -52,7 +52,7 @@
                 <th>
                     <div class="input-group">  
                         <div class="table-head">
-                            <span><b>IRPO</b></span>
+                            <span><b>% PROTECT</b></span>
                         </div>
                         <div class="input-group-append thead">
                             <select class="custom-select weight" id="irpo-default"></select>
@@ -64,11 +64,11 @@
                 <th>
                     <div class="input-group">  
                         <div class="table-head">
-                            <span><b>ACCREV</b></span>
+                            <span><b>TRADE-IN</b></span>
                         </div>
                         <div class="input-group-append thead">
-                            <select class="custom-select weight" id="acc-default"></select>
-                            <label class="input-group-text" for="acc-default">% wt</label>
+                            <select class="custom-select weight" id="trade-default"></select>
+                            <label class="input-group-text" for="trade-default">% wt</label>
                         </div>
                     </div>
                 </th>
@@ -164,19 +164,19 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD</span>
                         </div>
-                        <input type="number" class="form-control mtd accMTD">
+                        <input type="number" class="form-control mtd tradeMTD">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Goal</span>
                         </div>
-                        <input type="number" class="form-control goal accGoal">
+                        <input type="number" class="form-control goal tradeGoal">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text " id="basic-addon1">Add</span>
+                            <span class="input-group-text " id="basic-addon1">New</span>
                         </div>
-                        <input type="number" class="form-control add accAdd">
+                        <input type="number" class="form-control add tradeAdd">
                     </div>
                 </td>
             </tr>
@@ -247,13 +247,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">MTD % </span>
                         </div>
-                        <p class="form-control percentAttainAcc result"></p>
+                        <p class="form-control percentAttainTrade result"></p>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">New %</span>
                         </div>
-                        <p  class="form-control newAttainAcc result"></p>
+                        <p  class="form-control newAttainTrade result"></p>
                     </div>
                 </td>
             </tr>
@@ -275,12 +275,12 @@
         var percentAttainDtv;
         var percentAttainVga;
         var percentAttainIrpo;
-        var percentAttainAcc;
+        var percentAttainTrade;
         var percentAttainPpd;
         var newAttainDtv;
         var newAttainVga;
         var newAttainIrpo;
-        var newAttainAcc;
+        var newAttainTrade;
         var newAttainPpd;
 
         for (i = 0 ; i <= 100; i++) {
@@ -302,20 +302,20 @@
                     "dtvGoal": $('.dtvGoal').val(),
                     "vgaGoal": $('.vgaGoal').val(),
                     "irpoGoal": $('.irpoGoal').val(),
-                    "accGoal": $('.accGoal').val(),
+                    "tradeGoal": $('.tradeGoal').val(),
                     "ppdGoal": $('.ppdGoal').val(),
 
                     "dtvMTD": $('.dtvMTD').val(),
                     "vgaMTD": $('.vgaMTD').val(),
                     "irpoMTD": $('.irpoMTD').val(),
-                    "accMTD": $('.accMTD').val(),
+                    "tradeMTD": $('.tradeMTD').val(),
                     "ppdMTD": $('.ppdMTD').val(),
 
                     "dtvWeight": $("#dtv-default").val(),
                     "vgaWeight": $("#vga-default").val(),
-                    "irpoWeight": $("#ppd-default").val(),
-                    "accWeight": $("#irpo-default").val(),
-                    "ppdWeight": $("#acc-default").val(),
+                    "ppdWeight": $("#ppd-default").val(),
+                    "irpoWeight": $("#irpo-default").val(),
+                    "tradeWeight": $("#trade-default").val(),                   
                 }                
 
             window.localStorage.setItem('dataKey', JSON.stringify(inputData));
@@ -329,24 +329,24 @@
             $('.dtvGoal').val(getData.dtvGoal);
             $('.vgaGoal').val(getData.vgaGoal);
             $('.irpoGoal').val(getData.irpoGoal);
-            $('.accGoal').val(getData.accGoal);
+            $('.tradeGoal').val(getData.tradeGoal);
             $('.ppdGoal').val(getData.ppdGoal);
 
             $('.dtvMTD').val(getData.dtvMTD);
             $('.vgaMTD').val(getData.vgaMTD);;
             $('.irpoMTD').val(getData.irpoMTD);
-            $('.accMTD').val(getData.accMTD);
+            $('.tradeMTD').val(getData.tradeMTD);
             $('.ppdMTD').val(getData.ppdMTD);
 
             $('#dtv-default').val(getData.dtvWeight);
             $('#vga-default').val(getData.vgaWeight);;
-            $('#ppd-default').val(getData.irpoWeight);
-            $('#irpo-default').val(getData.accWeight);
-            $('#acc-default').val(getData.ppdWeight);
+            $('#ppd-default').val(getData.ppdWeight);
+            $('#irpo-default').val(getData.irpoWeight);
+            $('#trade-default').val(getData.tradeWeight);
         }
         // set default weights if not set by user
         if (!($("#dtv-default").val()) || $("#dtv-default").val() == 0) {
-            $("#dtv-default").val('30');
+            $("#dtv-default").val('35');
         }
         if (!($("#vga-default").val()) || $("#vga-default").val() == 0) {
             $("#vga-default").val('40');
@@ -355,10 +355,10 @@
             $("#ppd-default").val('10');
         }
         if (!($("#irpo-default").val()) || $("#irpo-default").val() == 0) {
-            $("#irpo-default").val('15');
+            $("#irpo-default").val('10');
         }
-        if (!($("#acc-default").val()) || $("#acc-default").val() == 0) {
-            $("#acc-default").val('5');
+        if (!($("#trade-default").val()) || $("#trade-default").val() == 0) {
+            $("#trade-default").val('5');
         }
 
         $('input, select').change(function() {
@@ -371,7 +371,7 @@
             let mtdDtvGoal = ($('.dtvGoal').val()) * mtd;
             let mtdVgaGoal = ($('.vgaGoal').val()) * mtd;
             let mtdPpdGoal = ($('.ppdGoal').val()) * mtd;
-            let mtdAccGoal = ($('.accGoal').val()) * mtd;            
+            let mtdTradeGoal = ($('.tradeGoal').val()) * mtd;            
 
             // DTV
             if ($('.dtvMTD').val()) {
@@ -401,20 +401,27 @@
                 $('.percentAttainIrpo').text(percentAttainIrpo);
             }
 
-            // ACC
-            if ($('.accMTD').val()) {
-                percentAttainAcc = ($('.accMTD').val() / mtdAccGoal) * 100;
-                percentAttainAcc = parseFloat(percentAttainAcc).toFixed(2);                
-                $('.percentAttainAcc').text(percentAttainAcc);
+            // TRADE
+            if ($('.tradeMTD').val()) {
+                percentAttainTrade = ($('.tradeMTD').val() / $('.tradeGoal').val()) * 100;
+                percentAttainTrade = parseFloat(percentAttainTrade).toFixed(2);                
+                $('.percentAttainTrade').text(percentAttainTrade);
             }
 
             // Calculate new percent
-            if ($('.dtvAdd').val() || $('.vgaAdd').val() || $('.irpoAdd').val() || $('.accAdd').val()) {
+            if ($('.dtvAdd').val() || $('.vgaAdd').val() || $('.irpoAdd').val() || $('.tradeAdd').val()) {
                 // DTV
                 if ($('.dtvAdd').val()) {
                     newAttainDtv = ((parseFloat($('.dtvMTD').val()) + parseFloat($('.dtvAdd').val())) / mtdDtvGoal) * 100;
                     newAttainDtv = parseFloat(newAttainDtv).toFixed(2);
-                    $('.newAttainDtv').text(newAttainDtv);
+
+                    // max % attain is 200
+                    if (newAttainDtv >= 200) {
+                        $('.newAttainDtv').text('200');
+                    } else {
+                        $('.newAttainDtv').text(newAttainDtv);
+                    }
+                    
                 } else {
                     $('.newAttainDtv').text(percentAttainDtv);
                 }
@@ -423,7 +430,14 @@
                 if ($('.vgaAdd').val()) {
                     newAttainVga = ((parseFloat($('.vgaMTD').val()) + parseFloat($('.vgaAdd').val())) / mtdVgaGoal) * 100;
                     newAttainVga = parseFloat(newAttainVga).toFixed(2);
-                    $('.newAttainVga').text(newAttainVga);
+
+                    // max % attain is 200
+                    if (newAttainVga >= 200) {
+                        $('.newAttainVga').text('200');
+                    } else {
+                        $('.newAttainVga').text(newAttainVga);
+                    }   
+                    
                 } else {
                     $('.newAttainVga').text(percentAttainVga);
                 }
@@ -432,7 +446,14 @@
                 if ($('.ppdAdd').val()) {
                     newAttainPpd = ((parseFloat($('.ppdMTD').val()) + parseFloat($('.ppdAdd').val())) / mtdPpdGoal) * 100;
                     newAttainPpd = parseFloat(newAttainPpd).toFixed(2);
-                    $('.newAttainPpd').text(newAttainPpd);
+                    
+                    // max % attain is 200
+                    if (newAttainPpd >= 200) {
+                        $('.newAttainPpd').text('200');
+                    } else {
+                        $('.newAttainPpd').text(newAttainPpd);
+                    }
+
                 } else {
                     $('.newAttainPpd').text(percentAttainPpd);
                 }
@@ -441,18 +462,30 @@
                 if ($('.irpoAdd').val()) {
                     newAttainIrpo = (parseFloat($('.irpoAdd').val()) / $('.irpoGoal').val()) * 100;
                     newAttainIrpo = parseFloat(newAttainIrpo).toFixed(2);  
-                    $('.newAttainIrpo').text(newAttainIrpo);
+                    
+                    // max % attain is 200
+                    if (newAttainIrpo >= 200) {
+                        $('.newAttainIrpo').text('200');
+                    } else {
+                        $('.newAttainIrpo').text(newAttainIrpo);
+                    }
                 } else {
                     $('.newAttainIrpo').text(percentAttainIrpo);
                 }            
             
-                // ACC
-                if ($('.accAdd').val()) {
-                    newAttainAcc = ((parseFloat($('.accMTD').val()) + parseFloat($('.accAdd').val()))/ mtdAccGoal) * 100;
-                    newAttainAcc = parseFloat(newAttainAcc).toFixed(2);
-                    $('.newAttainAcc').text(newAttainAcc);
+                // TRADE
+                if ($('.tradeAdd').val()) {
+                    newAttainTrade = (parseFloat($('.tradeAdd').val())/ $('.tradeGoal').val()) * 100;
+                    newAttainTrade = parseFloat(newAttainTrade).toFixed(2);
+                    
+                    // max % attain is 200
+                    if (newAttainTrade >= 200) {
+                        $('.newAttainTrade').text('200');
+                    } else {
+                        $('.newAttainTrade').text(newAttainTrade);
+                    }
                 } else {                    
-                    $('.newAttainAcc').text(percentAttainAcc);
+                    $('.newAttainTrade').text(percentAttainTrade);
                 }
             }
 
@@ -460,14 +493,14 @@
             let vgaWeight = parseFloat($("#vga-default").val());
             let ppdWeight = parseFloat($("#ppd-default").val());
             let irpoWeight = parseFloat($("#irpo-default").val());
-            let accWeight = parseFloat($("#acc-default").val());
+            let tradeWeight = parseFloat($("#trade-default").val());
             let attainDtv = parseFloat($(".newAttainDtv").text());
             let attainVga = parseFloat($(".newAttainVga").text());
             let attainPpd = parseFloat($(".newAttainPpd").text());
             let AttainIrpo = parseFloat($(".newAttainIrpo").text());
-            let AttainAcc = parseFloat($(".newAttainAcc").text());
+            let AttainTrade = parseFloat($(".newAttainTrade").text());
             
-            if ((vgaWeight + dtvWeight + irpoWeight + accWeight + ppdWeight) !== 100) {
+            if ((vgaWeight + dtvWeight + irpoWeight + tradeWeight + ppdWeight) !== 100) {
                 $('.alert').addClass('alert-danger alert-dismissible');
                 $('.alert').text('Weights must add up to 100!');                
             } else {
@@ -475,10 +508,10 @@
                 $('.alert').text('');
             }
 
-            let weightedPercent = ((dtvWeight / 100) * percentAttainDtv) + ((vgaWeight / 100) * percentAttainVga) + ((ppdWeight / 100) * percentAttainPpd) + ((irpoWeight / 100) * percentAttainIrpo) + ((accWeight / 100) * percentAttainAcc);
+            let weightedPercent = ((dtvWeight / 100) * percentAttainDtv) + ((vgaWeight / 100) * percentAttainVga) + ((ppdWeight / 100) * percentAttainPpd) + ((irpoWeight / 100) * percentAttainIrpo) + ((tradeWeight / 100) * percentAttainTrade);
             weightedPercent = weightedPercent.toFixed(2);
 
-            let newWeightedPercent = ((dtvWeight / 100) * attainDtv) + ((vgaWeight / 100) * attainVga) +  ((ppdWeight / 100) * attainPpd) + ((irpoWeight / 100) * AttainIrpo) + ((accWeight / 100) * AttainAcc);
+            let newWeightedPercent = ((dtvWeight / 100) * attainDtv) + ((vgaWeight / 100) * attainVga) +  ((ppdWeight / 100) * attainPpd) + ((irpoWeight / 100) * AttainIrpo) + ((tradeWeight / 100) * AttainTrade);
 
             newWeightedPercent = newWeightedPercent.toFixed(2);
 
