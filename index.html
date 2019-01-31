@@ -404,7 +404,7 @@
             // TRADE
             if ($('.tradeMTD').val()) {
                 percentAttainTrade = ($('.tradeMTD').val() / $('.tradeGoal').val()) * 100;
-                percentAttainTrade = parseFloat(percentAttainTrade).toFixed(2);                
+                percentAttainTrade = parseFloat(percentAttainTrade).toFixed(2);
                 $('.percentAttainTrade').text(percentAttainTrade);
             }
 
@@ -461,7 +461,7 @@
                 // IRPO
                 if ($('.irpoAdd').val()) {
                     newAttainIrpo = (parseFloat($('.irpoAdd').val()) / $('.irpoGoal').val()) * 100;
-                    newAttainIrpo = parseFloat(newAttainIrpo).toFixed(2);  
+                    newAttainIrpo = parseFloat(newAttainIrpo).toFixed(2);
                     
                     // max % attain is 200
                     if (newAttainIrpo >= 200) {
@@ -471,7 +471,7 @@
                     }
                 } else {
                     $('.newAttainIrpo').text(percentAttainIrpo);
-                }            
+                }
             
                 // TRADE
                 if ($('.tradeAdd').val()) {
@@ -497,12 +497,12 @@
             let attainDtv = parseFloat($(".newAttainDtv").text());
             let attainVga = parseFloat($(".newAttainVga").text());
             let attainPpd = parseFloat($(".newAttainPpd").text());
-            let AttainIrpo = parseFloat($(".newAttainIrpo").text());
-            let AttainTrade = parseFloat($(".newAttainTrade").text());
+            let attainIrpo = parseFloat($(".newAttainIrpo").text());
+            let attainTrade = parseFloat($(".newAttainTrade").text());
             
             if ((vgaWeight + dtvWeight + irpoWeight + tradeWeight + ppdWeight) !== 100) {
                 $('.alert').addClass('alert-danger alert-dismissible');
-                $('.alert').text('Weights must add up to 100!');                
+                $('.alert').text('Weights must add up to 100!');
             } else {
                 $('.alert').removeClass('alert-danger alert-dismissible');
                 $('.alert').text('');
@@ -511,7 +511,7 @@
             let weightedPercent = ((dtvWeight / 100) * percentAttainDtv) + ((vgaWeight / 100) * percentAttainVga) + ((ppdWeight / 100) * percentAttainPpd) + ((irpoWeight / 100) * percentAttainIrpo) + ((tradeWeight / 100) * percentAttainTrade);
             weightedPercent = weightedPercent.toFixed(2);
 
-            let newWeightedPercent = ((dtvWeight / 100) * attainDtv) + ((vgaWeight / 100) * attainVga) +  ((ppdWeight / 100) * attainPpd) + ((irpoWeight / 100) * AttainIrpo) + ((tradeWeight / 100) * AttainTrade);
+            let newWeightedPercent = ((dtvWeight / 100) * attainDtv) + ((vgaWeight / 100) * attainVga) +  ((ppdWeight / 100) * attainPpd) + ((irpoWeight / 100) * attainIrpo) + ((tradeWeight / 100) * attainTrade);
 
             newWeightedPercent = newWeightedPercent.toFixed(2);
 
